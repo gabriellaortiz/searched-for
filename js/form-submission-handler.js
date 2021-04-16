@@ -52,45 +52,60 @@
 
   var submitCounter = 0;
   function handleFormSubmit(event) {  // handles form submit without any jquery
-    event.preventDefault();           // we are submitting via xhr below
-    var form = event.target;
-    var formData = getFormData(form);
-    var data = formData.data;
+      event.preventDefault();           // we are submitting via xhr below
+      var form = event.target;
+      var formData = getFormData(form);
+      var data = formData.data;
+      console.log(data);
+      var submitaffect = data.affect;
+      var submitaffect_more = data.affect_more;
+      var submitweb_data = data.web_data;
+      console.log(data.affect);
+      console.log(data.affect_more);
+      console.log(data.web_data);
 
-    // If a honeypot field is filled, assume it was done so by a spam bot.
-    if (formData.honeypot) {
-      return false;
-    }
+      if (submitaffect == "" || submitaffect_more == "" || submitweb_data == "") {
+        document.getElementById("try-again").style.display = "block";
+      }
 
-    // disableAllButtons(form);
-    var url = form.action;
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', url);
-    // xhr.withCredentials = true;
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          submitCounter ++;
-          form.reset();
-          console.log(submitCounter);
-          document.getElementById("thank-you").innerHTML = "Submitted " + submitCounter + " search(es)! You can submit another now.";
-          document.getElementById("thank-you").style.display = "block";
-          // var formElements = form.querySelector(".form-elements")
-          // if (formElements) {
-          //   formElements.style.display = "none"; // hide form
-          // }
-          // var thankYouMessage = form.querySelector(".thankyou_message");
-          // if (thankYouMessage) {
-          //   thankYouMessage.style.display = "block";
-          // }
-        }
-    };
-    // url encode form data for sending as post data
-    var encoded = Object.keys(data).map(function(k) {
-        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
-    }).join('&');
-    xhr.send(encoded);
+      else {
+                document.getElementById("try-again").style.display = "none";
+      // If a honeypot field is filled, assume it was done so by a spam bot.
+      if (formData.honeypot) {
+        return false;
+      }
+
+      // disableAllButtons(form);
+      var url = form.action;
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', url);
+      // xhr.withCredentials = true;
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            submitCounter ++;
+            form.reset();
+            console.log(submitCounter);
+            document.getElementById("thank-you").innerHTML = "Submitted " + submitCounter + " search(es)! You can submit another now.";
+            document.getElementById("thank-you").style.display = "block";
+            // var formElements = form.querySelector(".form-elements")
+            // if (formElements) {
+            //   formElements.style.display = "none"; // hide form
+            // }
+            // var thankYouMessage = form.querySelector(".thankyou_message");
+            // if (thankYouMessage) {
+            //   thankYouMessage.style.display = "block";
+            // }
+          }
+      };
+      // url encode form data for sending as post data
+      var encoded = Object.keys(data).map(function(k) {
+          return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+      }).join('&');
+      xhr.send(encoded);
   }
+
+      }
   
   function loaded() {
     // bind to the submit event of our form
