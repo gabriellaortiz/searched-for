@@ -26,12 +26,12 @@
 					<li><p class="description">Send download link via email, export once, create export.</p>
 					<li><p class="description">Wait for the link to come into your Google inbox.</p>
 					<li><p class="description">Once you recieve the .zip file, open and navigate to the "search" folder.</p>
-					<li><p class="description">Upload "MyActivity.json" file below. <input type="file" id="fileInput"> </p> 
+					<li><p class="description">Upload "MyActivity.json" file here: <input type="file" id="fileInput"> </p> 
 					<div id="view-searches" style="display: none;">
-						<p id="clicker"><strong>VIEW YOUR SEARCHES</strong></p>
+						<p id="clicker" style="color: red; text-decoration: underline;"><strong>CLICK TO OPEN YOUR SEARCHES IN A NEW TAB</strong></p>
 						<div class="console"></div>
 					</div>
-					<li><p class="description">Take a minute to read through your data. Once you find a search that trigges a memory or emotion, copy and paste it into the "searched for" box. Tag it with a one word emotion from the list or create your own. Elaborate as much as you'd like to on the emotion or memory that was triggered.</p>
+					<li><p class="description">Take a minute to read through your data. Once you find a search that trigges a memory or emotion, scroll down, copy and paste it into the "searched for" box. Tag it with a one word emotion from the list or create your own. Elaborate as much as you'd like to on the emotion or memory that was triggered.</p>
 					<li><p class="description">Once your data is entered, hit submit. Thank you for all of your help <3</p>
 				</ol>
 			</div>	
@@ -55,7 +55,10 @@
  -->		<div class="col"></div>				
 	</div>
 
-	<div id="add-data">
+	<div id="thank-you" style="display: none;"><p>Submitted! You can submit another now.</p></div>
+
+
+	<div id="add-data" style="display: none;">
 		<!-- START HERE -->
 <!-- 	   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
 	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
@@ -69,22 +72,24 @@
 	    <div class="form-elements">
 			<div class="flex-grid-thirds">
 				<div class="col">
+					<p class="description">Paste your search:</p>
 					<fieldset class="pure-group">
-		        		<label for="web_data">Paste your search:</label>
+		        		<label for="web_data"></label>
 		       			<input id="web_data" name="web_data" placeholder="Searched for..." />
 		      		</fieldset>
 		  		</div>				
 				<div class="col">
+					<p class="description">Choose one or create your own:<br>
+			        	nostalgia, sad, dreaming, happy, irritated, angry, surprised, fearful, reluctant, proud, discouraged, stressed, anxious, curious, calm, sick, worried, skeptical.</p>
 			      <fieldset class="pure-group">
-			        <label for="affect">Choose one or create your own:<br>
-			        	nostalgia, sad, dreaming, happy, irritated, angry, surprised, fearful, reluctant, proud, discouraged, stressed, anxious, curious, calm, sick, worried, skeptical.
-			    	</label>
+			        <label for="affect"></label>
 			        <input id="affect" name="affect" type="affect" placeholder="I feel..." />
 			      </fieldset>
 		  		</div>	
 				<div class="col">
+					<p class="description">Why do you feel this way?</p>
 			      <fieldset class="pure-group">
-			        <label for="affect-more">Why do you feel this way? </label>
+			        <label for="affect-more"></label>
 			        <textarea id="affect-more" name="affect-more" rows="10"
 			        placeholder="Elaborate..."></textarea>
 			      </fieldset>
@@ -96,8 +101,7 @@
 		  	</div>
 	  </form>
 
-
-	  <!-- Submit the Form to Google Using "AJAX" -->
+  <!-- Submit the Form to Google Using "AJAX" -->
 	  <script data-cfasync="false" src="../js/form-submission-handler.js"></script>
 	<!-- END -->
 </div>

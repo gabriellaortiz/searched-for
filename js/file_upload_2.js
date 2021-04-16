@@ -66,13 +66,14 @@ searchHistory.setAttribute('style', 'white-space: pre;');
 for(var i = 0; i < 10000; i += 1) {
 	if (result[i].title.includes('Searched')) {
 			searchHistory.textContent += result[i].title + "\r\n";
-			console.log(result[i].title);
+			// console.log(result[i].title);
 	}
 }
 
 // document.getElementById("view-searches").element.style.visibility = 'visible'; 
 
 document.getElementById("view-searches").style.display = "block";
+document.getElementById("add-data").style.display = "block";
 
 
 //THIS WORKS

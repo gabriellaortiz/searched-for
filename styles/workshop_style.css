@@ -92,7 +92,7 @@ a.affect_link, p.affect_list  {
     text-decoration: none;
 }
 
-p.search, p.description, p#searchHistory, a.small_link, ol {
+input, textarea, .form-elements, p.search, p.description, p#searchHistory, a.small_link, ol {
 	font-family: helvetica;
 	font-weight: 400;
 	font-style: normal;

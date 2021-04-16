@@ -50,6 +50,7 @@
     return {data: formData, honeypot: honeypot};
   }
 
+  var submitCounter = 0;
   function handleFormSubmit(event) {  // handles form submit without any jquery
     event.preventDefault();           // we are submitting via xhr below
     var form = event.target;
@@ -61,7 +62,7 @@
       return false;
     }
 
-    disableAllButtons(form);
+    // disableAllButtons(form);
     var url = form.action;
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url);
@@ -69,15 +70,19 @@
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
+          submitCounter ++;
           form.reset();
-          var formElements = form.querySelector(".form-elements")
-          if (formElements) {
-            formElements.style.display = "none"; // hide form
-          }
-          var thankYouMessage = form.querySelector(".thankyou_message");
-          if (thankYouMessage) {
-            thankYouMessage.style.display = "block";
-          }
+          console.log(submitCounter);
+          document.getElementById("thank-you").innerHTML = "Submitted " + submitCounter + " search(es)! You can submit another now.";
+          document.getElementById("thank-you").style.display = "block";
+          // var formElements = form.querySelector(".form-elements")
+          // if (formElements) {
+          //   formElements.style.display = "none"; // hide form
+          // }
+          // var thankYouMessage = form.querySelector(".thankyou_message");
+          // if (thankYouMessage) {
+          //   thankYouMessage.style.display = "block";
+          // }
         }
     };
     // url encode form data for sending as post data
