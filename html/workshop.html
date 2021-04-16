@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+<head>
+	<link rel="stylesheet" href="../styles/workshop_style.css">
+	<link rel="stylesheet" href="https://use.typekit.net/bff4far.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<title>SEARCHED FOR: "qualia"</title>
+</head>
+<body>
+	<div class="flex-grid-thirds">
+		<div class="col"><h1 class="title">SEARCHED FOR: "qualia"</h1></div>
+	</div>
+<div id="upload-instructions">
+		<div class="flex-grid-thirds">
+			<div class="col">
+				<p class="description">This is a project about the data trails we leave behind and the emotions and memories that are triggered when presented with this past data history.<br><br>All contributions are anonymous and any help is so appreciated! Please share as much or as little as you wish. Contributions will live (anonymously) on an archival page I will create for my final thesis project. The responses will be catagorized by "feeling" and "emotion."</p>
+				<h1>How to download your data:</h1>
+				<ol>
+					<li><p class="description">Visit <a class="small_link" target="blank" href="https://takeout.google.com">takeout.google.com</a></li></p>
+					<li><p class="description">Be sure you are logged into your personal google account, not a work or university account (any account you use most).</p>
+					<li><p class="description">Deselect all, scroll to "My Activity" and select it.</p>
+					<li><p class="description">Click "Multiple Formats" on the left.</p>
+					<li><p class="description">Click "HTML" and switch to "JSON."</p>
+					<li><p class="description">Click Next Step.</p>
+					<li><p class="description">Send download link via email, export once, create export.</p>
+					<li><p class="description">Wait for the link to come into your Google inbox.</p>
+					<li><p class="description">Once you recieve the .zip file, open and navigate to the "search" folder.</p>
+					<li><p class="description">Upload "MyActivity.json" file below. <input type="file" id="fileInput"> </p> 
+					<div id="view-searches" style="display: none;">
+						<p id="clicker"><strong>VIEW YOUR SEARCHES</strong></p>
+						<div class="console"></div>
+					</div>
+					<li><p class="description">Take a minute to read through your data. Once you find a search that trigges a memory or emotion, copy and paste it into the "searched for" box. Tag it with a one word emotion from the list or create your own. Elaborate as much as you'd like to on the emotion or memory that was triggered.</p>
+					<li><p class="description">Once your data is entered, hit submit. Thank you for all of your help <3</p>
+				</ol>
+			</div>	
+			<div class="col" id="loaded-searches">
+			</div>	
+<!-- 			<div class="col"></div>				
+		</div>	 -->	
+	</div>
+
+		<div id="upload-instructions">
+		<div class="flex-grid-thirds">
+
+			<div class="col"></div>			
+			<div class="col"></div>				
+		</div>		
+	</div>
+	</div>
+	<div class="flex-grid-thirds">
+		<div class="col"></div>
+<!-- 		<div class="col"><a class="small_link-center" href="index.html">View Archive</a></div>				
+ -->		<div class="col"></div>				
+	</div>
+
+	<div id="add-data">
+		<!-- START HERE -->
+<!-- 	   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+	   <!-- Style The Contact Form How Ever You Prefer
+	   <link rel="stylesheet" href="style.css"> -->
+
+
+	  <form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
+	  action="https://script.google.com/macros/s/AKfycbzL0B5xJZjjkhi7g3uGvhxlApWyhn595b-msJ9NQZ8Ie4VcncmmCRZt/exec">
+	    <!-- change the form action to your script url -->
+	    <div class="form-elements">
+			<div class="flex-grid-thirds">
+				<div class="col">
+					<fieldset class="pure-group">
+		        		<label for="web_data">Paste your search:</label>
+		       			<input id="web_data" name="web_data" placeholder="Searched for..." />
+		      		</fieldset>
+		  		</div>				
+				<div class="col">
+			      <fieldset class="pure-group">
+			        <label for="affect">Choose one or create your own:<br>
+			        	nostalgia, sad, dreaming, happy, irritated, angry, surprised, fearful, reluctant, proud, discouraged, stressed, anxious, curious, calm, sick, worried, skeptical.
+			    	</label>
+			        <input id="affect" name="affect" type="affect" placeholder="I feel..." />
+			      </fieldset>
+		  		</div>	
+				<div class="col">
+			      <fieldset class="pure-group">
+			        <label for="affect-more">Why do you feel this way? </label>
+			        <textarea id="affect-more" name="affect-more" rows="10"
+			        placeholder="Elaborate..."></textarea>
+			      </fieldset>
+		  		</div>	
+				<div class="col">					
+			      <button class="button-success pure-button button-xlarge">
+			        <i class="fa fa-paper-plane"></i>&nbsp;Submit </button>
+		  		</div>	
+		  	</div>
+	  </form>
+
+
+	  <!-- Submit the Form to Google Using "AJAX" -->
+	  <script data-cfasync="false" src="../js/form-submission-handler.js"></script>
+	<!-- END -->
+</div>
+
+	<script src="../js/file_upload_2.js"></script>
+</body>
+</html>

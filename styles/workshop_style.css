@@ -1,0 +1,169 @@
+    @font-face {
+    font-family: ocr;
+    src: url("https://static.wixstatic.com/ufonts/e1ce86_20bbdff372f8447a8db3b22fb441c515/woff2/file.woff2") format("woff2"),
+    url("https://static.wixstatic.com/ufonts/e1ce86_20bbdff372f8447a8db3b22fb441c515/woff/file.woff") format("woff"),
+    url("https://static.wixstatic.com/ufonts/e1ce86_20bbdff372f8447a8db3b22fb441c515/ttf/file.ttf") format("ttf");
+}
+
+body {
+	background: white;
+}
+h1 {
+	font-family: helvetica;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 40px;
+	text-transform: none;
+	color: black;
+	-webkit-font-smoothing: antialiased !important;
+    text-rendering:optimizeLegibility !important;
+    text-decoration: none;
+}
+
+h1 a:hover {
+	font-family: helvetica;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 40px;
+	text-transform: none;
+	color: black;
+	-webkit-font-smoothing: antialiased !important;
+    text-rendering:optimizeLegibility !important;
+    text-decoration: underline;
+}
+
+h2 {
+	font-family: lores-21-serif,sans-serif;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 30px;
+	text-transform: none;
+	color: black;
+	-webkit-font-smoothing: antialiased !important;
+    text-rendering:optimizeLegibility !important;
+    text-decoration: none;
+}
+
+h2 a:hover {
+	font-family: helvetica;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 30px;
+	text-transform: none;
+	color: black;
+	-webkit-font-smoothing: antialiased !important;
+    text-rendering:optimizeLegibility !important;
+    text-decoration: underline;
+}
+
+a.back  {
+	font-family: helvetica;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 20px;
+	text-transform: uppercase;
+	color: black;
+	-webkit-font-smoothing: antialiased !important;
+    text-rendering:optimizeLegibility !important;
+    text-decoration: none;
+}
+
+a.back:hover  {
+	font-family: helvetica;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 20px;
+	text-transform: uppercase;
+	color: black;
+	-webkit-font-smoothing: antialiased !important;
+    text-rendering:optimizeLegibility !important;
+    text-decoration: underline;
+}
+
+a.affect_link, p.affect_list  {
+	font-family: helvetica;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 20px;
+	text-transform: uppercase;
+	color: black;
+	-webkit-font-smoothing: antialiased !important;
+    text-rendering:optimizeLegibility !important;
+    text-decoration: none;
+}
+
+p.search, p.description, p#searchHistory, a.small_link, ol {
+	font-family: helvetica;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 20px;
+	color: black;
+	-webkit-font-smoothing: antialiased !important;
+    text-rendering:optimizeLegibility !important;
+    text-decoration: none;
+}
+
+a.small_link-center {
+	font-family: helvetica;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 20px;
+	text-transform: uppercase;
+	color: black;
+	-webkit-font-smoothing: antialiased !important;
+    text-rendering:optimizeLegibility !important;
+    text-decoration: none;
+/*    make sure these links are centered!!!
+*/	text-align: center;
+}
+
+a.small_link:hover, a.small_link-center:hover, a.affect_link:hover {
+    text-decoration: underline;
+}
+
+.flex-grid {
+  display: flex;
+  align-items: center;
+}
+.flex-grid .col {
+  flex: 1;
+}
+.flex-grid-thirds {
+  display: flex;
+  justify-content: space-between;
+
+}
+.flex-grid-thirds .col {
+/*	  width: 32%;
+*/
+  width: 80%;
+}
+
+@media (max-width: 400px) {
+  .flex-grid,
+  .flex-grid-thirds {
+    display: block;
+    .col {
+      width: 100%;
+      margin: 0 0 10px 0;
+    }
+  }
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 20px;
+}
+.flex-grid { 
+  margin: 0 0 20px 0;
+}
+.col {
+  padding: 30px;
+  color: black;
+/*  border:solid;
+  border-width: 1px;*/
+}
