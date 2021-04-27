@@ -1,0 +1,19 @@
+{
+  "name": "thesis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sowers.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "download-file": "^0.1.5",
+    "express": "^4.17.1",
+    "nodemailer": "^6.5.0",
+    "request": "^2.88.2",
+    "socket.io": "^4.0.1"
+  }
+}

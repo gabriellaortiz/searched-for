@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+<head>
+	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="https://use.typekit.net/bff4far.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- 	<title>SEARCHED FOR: "qualia"</title>
+ --></head>
+	<div class="flex-grid-thirds">
+	</div>
+
+<!-- https://css-tricks.com/dont-overthink-flexbox-grids/ -->
+<!-- need to find a way to pull affects from API, create random points for the words (that dont overlap) -->
+	<div class="flex-grid-thirds">
+		<div class="col" style="margin-left: 250px; margin-top: 50px; display: block;"><a class="affect_link" href="">Nostalgia</a></div>
+	</div>
+
+
+</body>
+
+<script> 
+function pullContent() {
+  var elements = document.getElementsByTagName("a"); 
+  for(var i=0; i<elements.length; i++){
+    if (elements[i].className == 'affect_link') { 
+         elements[i].onclick = function (){ 
+         	// console.log("link clicked!");
+           alert("yes link clicked!"); 
+   }
+ } 
+}
+};
+pullContent();
+</script>
+</html>

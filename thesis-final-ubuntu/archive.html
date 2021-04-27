@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+<head>
+	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="https://use.typekit.net/bff4far.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	 <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
+    <script src="sketchw.js"></script>
+<!-- 	<title>SEARCHED FOR: "qualia"</title>
+ -->
+
+<script>
+  var port=8000
+  var url ="localhost"
+  // var url="ec2-18-191-38-236.us-east-2.compute.amazonaws.com"
+
+  // var url='98.113.32.191';
+
+
+  var red,blue,green;
+  var socket = io.connect(url+':'+port);
+
+  socket.on('fromserver', function (data) {
+  });
+
+socket.on('toscreen', function (data) {
+	//console.log(data);
+  });
+
+socket.on('msgscreen', function (data) {
+  console.log(data);
+  dbmessage=data.b
+  });
+
+setInterval(function(){ 
+    socket.emit('heart', { r:"rval",g:"gval",b:"bval" });	
+}, 3000);
+
+
+
+  function msgdb(){
+    socket.emit('msgdb', { r:"rval",g:"gval",b:"bval" });
+}
+  function toColor(){
+    socket.emit('fromwebclient', { r:rval,g:gval,b:bval });
+}
+
+function emailserver(i){
+          socket.emit('emailserver', { b:i,s:"data.s",l:"data.l" });
+
+}
+</script>
+
+</head>
+
+
+<body>
+	
+	    <main>
+
+
+	<div class="flex-grid-thirds">
+	</div>
+
+<!-- https://css-tricks.com/dont-overthink-flexbox-grids/ -->
+<!-- need to find a way to pull affects from API, create random points for the words (that dont overlap) -->
+	<div class="flex-grid-thirds">
+		<div class="col" style="margin-left: 250px; margin-top: 50px; display: block;"><p class="affect_link">Nostalgia</p></div>
+	</div>
+
+    </main>
+
+
+</body>
+
+<script> 
+function pullContent() {
+  var elements = document.getElementsByTagName("a"); 
+  for(var i=0; i<elements.length; i++){
+    if (elements[i].className == 'affect_link') { 
+         elements[i].onclick = function (){ 
+         	// console.log("link clicked!");
+           alert("yes link clicked!"); 
+   }
+ } 
+}
+};
+pullContent();
+</script>
+</html>
+
+
+

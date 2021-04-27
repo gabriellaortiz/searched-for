@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+<head>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://use.typekit.net/bff4far.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
+    <script src="sketchw.js"></script>
+<!--  <title>SEARCHED FOR: "qualia"</title>
+ -->
+
+<!-- this styling styles the canvas drawn in sketchhw.js... right now, it is a blue square at top left -->
+    <style>
+        canvas {
+           position:absolute;
+           width: 100%;
+           height: 100%;
+           top: 0;
+           left: 0;
+           z-index:-1;
+
+/*           top:50%;
+           left:50%;*/
+/*             top: 50%;
+            left: 50%;*/
+/*           width:100%;
+           height:100%;*/
+
+/* this allows text to be centered on page
+           width: 300px;
+			height: 200px;
+			top: 50%;
+			left: 50%;
+			margin-left: -150px;
+			margin-top: -100px;*/
+
+        }
+    </style>
+
+<script>
+  var port=8000
+  // var url ="localhost"
+  var url="ec2-18-191-38-236.us-east-2.compute.amazonaws.com"
+
+  // var url='98.113.32.191';
+
+
+  var red,blue,green;
+  var socket = io.connect(url+':'+port);
+
+  socket.on('fromserver', function (data) {
+  });
+
+socket.on('toscreen', function (data) {
+  //console.log(data);
+  });
+
+socket.on('msgscreen', function (data) {
+  console.log(data);
+  dbmessage=data.b
+  });
+
+setInterval(function(){ 
+    socket.emit('heart', { r:"rval",g:"gval",b:"bval" }); 
+}, 3000);
+
+
+
+  function msgdb(){
+    socket.emit('msgdb', { r:"rval",g:"gval",b:"bval" });
+}
+  function toColor(){
+    socket.emit('fromwebclient', { r:rval,g:gval,b:bval });
+}
+
+// function emailserver(i){
+//           socket.emit('emailserver', { b:i,s:"data.s",l:"data.l" });
+
+// }
+</script>
+
+</head>
+
+
+<body>
+  
+      <main>
+
+    <script src="processing-1.4.1.min.js"></script>
+    <div id="canvasContainer">
+    <canvas data-processing-sources="rectangles.pde"></canvas>
+    </div>
+
+
+  <div class="flex-grid-thirds">
+    <div class="col" style="margin-left: 250px; margin-top: 70px; display: block;"><a class="affect_link">Nostalgia</a></div>
+    <div class="col" style="margin-left: 100px; margin-bottom: 20px; display: block;"><a class="affect_link">Sad</a></div>
+    <div class="col" style="margin-left: 85px; margin-top: 30px; display: block;"><a class="affect_link">Dreaming</a></div>
+  </div>
+  <div class="flex-grid-thirds">
+    <div class="col" style="margin-left: 150px; margin-top: 65px; display: block;"><a class="affect_link">Happy</a></div>
+    <div class="col" style="margin-left: 460px; margin-bottom: 0px; display: block;"><a class="affect_link">Irritated</a></div>
+    <div class="col" style="margin-left: -100px; margin-top: -30px; display: block;"><a class="affect_link">Angry</a></div>
+  </div>
+  <div class="flex-grid-thirds">
+    <div class="col" style="margin-left: 200px; margin-top: 10px; display: block;"><a class="affect_link">Surprised</a></div>
+    <div class="col" style="margin-left: -350px; margin-top: 70px; display: block;"><a class="affect_link">Fearful</a></div>
+    <div class="col" style="margin-left: 50px; margin-top: 40px; display: block;"><a class="affect_link">Reluctant</a></div>
+  </div>
+
+  <div class="flex-grid-thirds">
+    <div class="col" style="margin-left: -400px;  margin-top: 10px;  display: block;"><a class="affect_link">Proud</a></div>    
+    <div class="col" style="margin-left: 30px;  margin-top: 20px;  display: block;"><a class="affect_link">Discouraged</a></div>    
+    <div class="col" style="margin-left: -125px;  margin-top: 30px;  display: block;"><a class="affect_link">Stressed</a></div>   
+  </div>
+
+  <div class="flex-grid-thirds">
+    <div class="col" style="margin-left: 20px;  margin-top: 35px;  display: block;"><a class="affect_link">Anxious</a></div>        
+    <div class="col" style="margin-left: 40px;  margin-top: 50px;  display: block;"><a class="affect_link">Curious</a></div>        
+    <div class="col" style="margin-left: -100px;  margin-top: 70px;  display: block;"><a class="affect_link">Calm</a></div>       
+  </div>
+
+  <div class="flex-grid-thirds">
+    <div class="col" style="margin-left: 60px; margin-top: 30px; display: block;"><a class="affect_link">Sick</a></div>
+    <div class="col" style="margin-left: 25px; margin-top: 80px; display: block;"><a class="affect_link"></a></div>        
+    <div class="col" style="margin-left: -20px; margin-top: 20px; display: block;"><a class="affect_link" >Skeptical</a></div>       
+  </div>
+
+
+
+
+
+
+<!-- https://css-tricks.com/dont-overthink-flexbox-grids/ -->
+<!-- need to find a way to pull affects from API, create random points for the words (that dont overlap) -->
+<!--   <div class="flex-grid-thirds">
+    <div class="col" style="margin-left: 250px; margin-top: 50px; display: block;"><a class="affect_link">Nostalgia</a></div>
+    <div class="col" style="margin-left: 100px; margin-bottom: 20px; display: block;"><a class="affect_link">Sad</a></div>
+    <div class="col" style="margin-left: 85px; margin-top: 30px; display: block;"><a class="affect_link">Dreaming</a></div>
+  </div>
+  <div class="flex-grid-thirds">
+    <div class="col" style="margin-left: 150px; margin-top: 30px; display: block;"><a class="affect_link">Happy</a></div>
+    <div class="col" style="margin-left: 260px; margin-bottom: 100px; display: block;"><a class="affect_link">Irritated</a></div>
+    <div class="col" style="margin-left: -100px; margin-top: -30px; display: block;"><a class="affect_link">Angry</a></div>
+  </div>
+  <div class="flex-grid-thirds">
+    <div class="col" style="margin-left: 200px; margin-top: 10px; display: block;"><a class="affect_link">Surprised</a></div>
+    <div class="col" style="margin-left: -350px; margin-top: 70px; display: block;"><a class="affect_link">Fearful</a></div>
+    <div class="col" style="margin-left: 50px; margin-top: 40px; display: block;"><a class="affect_link">Reluctant</a></div>
+  </div>
+
+  <div class="flex-grid-thirds">
+    <div class="col" style="margin-left: -400px;  margin-top: 10px;  display: block;"><a class="affect_link">Proud</a></div>    
+    <div class="col" style="margin-left: 30px;  margin-top: 20px;  display: block;"><a class="affect_link">Discouraged</a></div>    
+    <div class="col" style="margin-left: -125px;  margin-top: 30px;  display: block;"><a class="affect_link">Stressed</a></div>   
+  </div>
+
+  <div class="flex-grid-thirds">
+    <div class="col" style="margin-left: 20px;  margin-top: 35px;  display: block;"><a class="affect_link">Anxious</a></div>        
+    <div class="col" style="margin-left: 40px;  margin-top: 50px;  display: block;"><a class="affect_link">Curious</a></div>        
+    <div class="col" style="margin-left: -100px;  margin-top: 70px;  display: block;"><a class="affect_link">Calm</a></div>       
+  </div>
+
+  <div class="flex-grid-thirds">
+    <div class="col" style="margin-left: 60px; margin-top: 30px; display: block;"><a class="affect_link">Sick</a></div>
+    <div class="col" style="margin-left: 25px; margin-top: 80px; display: block;"><a class="affect_link"></a></div>        
+    <div class="col" style="margin-left: -20px; margin-top: 20px; display: block;"><a class="affect_link" >Skeptical</a></div>       
+  </div>
+ -->
+    </main>
+
+
+</body>
+</html>
+
+
+
